@@ -1,1 +1,49 @@
-Hello World
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050600">
+    <meta name="description" content="A terminal welcome to atharva.de.">
+    <title>atharva.de — terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="terminal" aria-label="Terminal">
+      <div class="terminal-bar">
+        <span class="terminal-mark" aria-hidden="true">atharva.de</span>
+        <div class="terminal-actions">
+          <button id="terminal-maximize" type="button" aria-label="Maximize terminal" title="Maximize terminal" aria-pressed="false">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path class="maximize-icon" d="M4 4h8v8H4Z"/><path class="restore-icon" d="M6 6V3h7v7h-3M3 6h7v7H3Z"/></svg>
+          </button>
+          <button id="terminal-close" type="button" aria-label="Close terminal" title="Close terminal">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5 5 6 6m0-6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <section class="terminal-screen" aria-label="Terminal session">
+        <div class="motd">
+          <p class="welcome">Welcome to atharva.de</p>
+          <p>Curiosity looks good on you.</p>
+          <p class="motd-hint">Type <span>help</span> to see what you can do.</p>
+        </div>
+        <div id="terminal-output" class="terminal-output" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <form id="terminal-form" class="prompt-line" autocomplete="off">
+          <label class="prompt" for="terminal-input">guest@atharva:~$</label>
+          <input id="terminal-input" name="command" type="text" aria-label="Enter a command" spellcheck="false" autocapitalize="off" autofocus>
+          <span class="prompt-cursor" aria-hidden="true"></span>
+        </form>
+      </section>
+    </main>
+    <template id="closed-screen">
+      <main class="crash-screen" aria-labelledby="crash-title">
+        <div class="crash-icon" aria-hidden="true">:)</div>
+        <p class="crash-eyebrow">OVER AND OUT</p>
+        <h1 id="crash-title" tabindex="-1">That's a wrap!</h1>
+        <p>Thanks for stopping by.</p>
+        <p class="crash-hint">The terminal's taking a tiny nap. Reload the page for an encore.</p>
+      </main>
+    </template>
+  </body>
+</html>
